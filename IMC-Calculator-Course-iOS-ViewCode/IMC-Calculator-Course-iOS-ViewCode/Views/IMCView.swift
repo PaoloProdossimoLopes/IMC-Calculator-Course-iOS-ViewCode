@@ -71,7 +71,7 @@ final class IMCView: CustomView {
     
     func configureConstraints() {
         containerView.configureContstaints(top: topAnchor, leading: leadingAnchor,
-                                           trailing: trailingAnchor, height: 350)
+                                           trailing: trailingAnchor)
 
         IMCHEaderStackView.configureContstaints(top: containerView.safeAreaLayoutGuide.topAnchor,
                                                 leading: containerView.leadingAnchor,

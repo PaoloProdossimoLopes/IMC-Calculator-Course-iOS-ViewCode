@@ -20,22 +20,29 @@ final class IMCCustomButton: UIButton {
     init(title: String) {
         self.buttonTitle = title
         super.init(frame: .zero)
-        configureButton() 
+        commonInit()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configureButton() {
+    private func commonInit() {
+        translatesAutoresizingMaskIntoConstraints = false
+        addTarget(self, action: #selector(buttonHandleTapped), for: .touchUpInside)
+        configureConstraints()
+        configureStyle()
+    }
+    
+    private func configureConstraints() {
+        self.configureContstaints(height: 50)
+    }
+    
+    private func configureStyle() {
         setTitle(buttonTitle, for: .normal)
         titleLabel?.font = .boldSystemFont(ofSize: 18)
         backgroundColor = .systemGray4
         layer.cornerRadius = 8
-        
-        translatesAutoresizingMaskIntoConstraints = false
-        
-        addTarget(self, action: #selector(buttonHandleTapped), for: .touchUpInside)
     }
     
     func disableButton() {

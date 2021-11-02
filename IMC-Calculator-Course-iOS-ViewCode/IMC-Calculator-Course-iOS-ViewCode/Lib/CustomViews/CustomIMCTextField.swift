@@ -11,7 +11,7 @@ protocol CustomIMCTextFieldDelegate: AnyObject {
     func changeTextFieldValue(textField: UITextField)
 }
 
-final class CustomIMCTextField: UIView {
+final class CustomIMCTextField: CustomView {
     
     weak var delegate: CustomIMCTextFieldDelegate?
     
@@ -37,8 +37,6 @@ final class CustomIMCTextField: UIView {
         tf.backgroundColor = .white
         tf.keyboardType = .numbersAndPunctuation
         tf.textColor = .black
-        tf.attributedPlaceholder = NSAttributedString(string: tf.placeholder ?? "",
-                                                      attributes: [.foregroundColor: UIColor.gray])
         tf.layer.cornerRadius = 5
         return tf
     }()
@@ -48,28 +46,29 @@ final class CustomIMCTextField: UIView {
         self.CustomTextField.placeholder = placeHolder
         super.init(frame: .zero)
         
-        configureTextField()
+        commonInit()
+        CustomTextField.delegate = self
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configureTextField() {
-        CustomStackTextField.addArrangedSubview(CustomTitleTextField)
-        CustomStackTextField.addArrangedSubview(CustomTextField)
-        
+    func configureViewHierachy() {
+        [CustomTitleTextField, CustomTextField].forEach { CustomStackTextField.addArrangedSubview($0) }
         addSubview(CustomStackTextField)
-        
-        CustomTextField.delegate = self
-
-        NSLayoutConstraint.activate([
-            CustomStackTextField.topAnchor.constraint(equalTo: topAnchor),
-            CustomStackTextField.leadingAnchor.constraint(equalTo: leadingAnchor),
-            CustomStackTextField.trailingAnchor.constraint(equalTo: trailingAnchor),
-            CustomTextField.heightAnchor.constraint(equalToConstant: 50),
-            bottomAnchor.constraint(equalTo: CustomStackTextField.bottomAnchor)
-        ])
+    }
+    
+    func configureConstraints() {
+        CustomTextField.configureContstaints(height: 50)
+        CustomStackTextField.configureContstaints(top: topAnchor, leading: leadingAnchor,
+                                                  trailing: trailingAnchor)
+        self.configureContstaints(bottom: CustomStackTextField.bottomAnchor)
+    }
+    
+    func configureStyle() {
+        CustomTextField.attributedPlaceholder = NSAttributedString(string: CustomTextField.placeholder ?? "",
+                                                      attributes: [.foregroundColor: UIColor.gray])
     }
     
     func getTextFromTextField() -> String { return CustomTextField.text ?? "" }

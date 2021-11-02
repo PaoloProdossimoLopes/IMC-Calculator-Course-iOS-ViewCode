@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class IMCHeader: UIView {
+final class IMCHeader: CustomView {
     
     private let customHeaderStackView: UIStackView = {
         let stack = UIStackView()
@@ -35,28 +35,25 @@ final class IMCHeader: UIView {
     init(title: String, subtitle: String) {
         self.customTitle.text = title
         self.customSubtitle.text = subtitle
-        
         super.init(frame: .zero)
         
-        configureHeader()
+        translatesAutoresizingMaskIntoConstraints = false
+        commonInit()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configureHeader() {
-        translatesAutoresizingMaskIntoConstraints = false
-        
+    func configureViewHierachy() {
         [customTitle, customSubtitle].forEach { customHeaderStackView.addArrangedSubview($0) }
         
         addSubview(customHeaderStackView)
-        
-        NSLayoutConstraint.activate([
-            customHeaderStackView.topAnchor.constraint(equalTo: topAnchor),
-            customHeaderStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            customHeaderStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            bottomAnchor.constraint(equalTo: customHeaderStackView.bottomAnchor)
-        ])
+    }
+    
+    func configureConstraints() {
+        customHeaderStackView.configureContstaints(top: topAnchor, leading: leadingAnchor,
+                                                   trailing: trailingAnchor)
+        self.configureContstaints(bottom: customHeaderStackView.bottomAnchor)
     }
 }
