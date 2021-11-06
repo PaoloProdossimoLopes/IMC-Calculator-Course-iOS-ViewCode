@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 extension UIView {
     
@@ -62,5 +63,21 @@ extension UIView {
         }; if let width = width {
             self.widthAnchor.constraint(equalToConstant: width).isActive = true
         }
+    }
+}
+
+extension UIView {
+    private struct CreateUIViewPreview: UIViewRepresentable {
+        let uiView: UIView
+
+        func makeUIView(context: Self.Context) -> some UIView {
+            uiView
+        }
+
+        func updateUIView(_ uiView: UIViewType, context: Self.Context) { }
+    }
+    
+    var asSwiftUIView: some View {
+        CreateUIViewPreview(uiView: self)
     }
 }

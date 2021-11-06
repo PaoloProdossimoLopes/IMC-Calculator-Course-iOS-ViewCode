@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B13193A62734A74E001D8568 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13193A52734A74E001D8568 /* UIViewController+Extensions.swift */; };
 		B1AC784527303A620064247A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC784427303A620064247A /* AppDelegate.swift */; };
 		B1AC784727303A620064247A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC784627303A620064247A /* SceneDelegate.swift */; };
 		B1AC784927303A620064247A /* IMCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC784827303A620064247A /* IMCViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B13193A52734A74E001D8568 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		B1AC784127303A620064247A /* IMC-Calculator-Course-iOS-ViewCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IMC-Calculator-Course-iOS-ViewCode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1AC784427303A620064247A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1AC784627303A620064247A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				B1FB2BC92730CEFD006C3C3D /* UIView+Extensions.swift */,
+				B13193A52734A74E001D8568 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				B1FB2BC42730C287006C3C3D /* IMCResultCustomView.swift in Sources */,
 				B1AC784927303A620064247A /* IMCViewController.swift in Sources */,
 				B1AC787C27305DF40064247A /* IMCVCViewModel.swift in Sources */,
+				B13193A62734A74E001D8568 /* UIViewController+Extensions.swift in Sources */,
 				B1FB2BCA2730CEFD006C3C3D /* UIView+Extensions.swift in Sources */,
 				B1FB2BBF27309A72006C3C3D /* IMCHeader.swift in Sources */,
 				B1FB2BCF27314F16006C3C3D /* CustomViews.swift in Sources */,

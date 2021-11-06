@@ -145,3 +145,15 @@ extension IMCView: IMCCustomButtonDelegate {
         endEditing(true)
     }
 }
+
+#if DEBUG
+import SwiftUI
+
+struct IMCView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        IMCView().asSwiftUIView.previewLayout(.sizeThatFits)
+    }
+}
+
+#endif

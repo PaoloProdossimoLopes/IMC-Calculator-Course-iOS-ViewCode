@@ -67,6 +67,7 @@ final class CustomIMCTextField: CustomView {
     }
     
     func configureStyle() {
+        backgroundColor = .systemBlue
         CustomTextField.attributedPlaceholder = NSAttributedString(string: CustomTextField.placeholder ?? "",
                                                       attributes: [.foregroundColor: UIColor.gray])
     }
@@ -91,3 +92,23 @@ extension CustomIMCTextField: UITextFieldDelegate {
         delegate?.changeTextFieldValue(textField: textField)
     }
 }
+
+
+#if DEBUG
+
+import SwiftUI
+
+struct CustomIMCTextField_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomIMCTextField(title: title, placeHolder: placeholder)
+            .asSwiftUIView
+            .previewLayout(.fixed(width: 150, height: 100))
+            .padding()
+            .background(.blue)
+    }
+}
+
+let title = "Altura(m):         "
+let placeholder = "EX: 75"
+
+#endif

@@ -74,3 +74,15 @@ extension IMCViewController: IMCViewDelegate {
     func calculateButtonTapped(weight: String, height: String) {
         viewModel?.calculateIMC(height: height, weight: weight) }
 }
+
+#if DEBUG
+import SwiftUI
+
+struct IMCViewController_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        IMCViewController().asSwiftUIView.edgesIgnoringSafeArea(.all)
+    }
+}
+
+#endif

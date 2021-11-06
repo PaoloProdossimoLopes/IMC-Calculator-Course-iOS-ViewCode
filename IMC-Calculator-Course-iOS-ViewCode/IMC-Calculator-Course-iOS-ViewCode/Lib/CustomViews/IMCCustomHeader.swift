@@ -43,6 +43,7 @@ final class IMCCustomHeader: CustomView {
         self.IMCSubtitle.text = subtitle
         super.init(frame: .zero)
         
+        backgroundColor = .systemBlue
         translatesAutoresizingMaskIntoConstraints = false
         commonInit()
     }
@@ -65,3 +66,17 @@ final class IMCCustomHeader: CustomView {
         self.configureContstaints(bottom: IMCHEaderStackView.bottomAnchor)
     }
 }
+
+#if DEBUG
+import SwiftUI
+
+struct IMCCustomHeader_Previews: PreviewProvider {
+    static var previews: some View {
+        IMCCustomHeader(title: "IMC", subtitle: "CALCULADORA")
+            .asSwiftUIView
+            .previewLayout(.fixed(width: 150, height: 100))
+            .padding()
+    }
+}
+
+#endif
